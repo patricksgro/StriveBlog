@@ -20,7 +20,7 @@ authRouter.get('/login-google', passport.authenticate('google', { scope: ['profi
 //e poi callback che chiamiamo qui senza fare funzione a parte e la risposta sarà il redirect al nostro front end con jwt negli indirizzi
 //è una get perche i dati vanno nel header
 authRouter.get('/callback-google', passport.authenticate('google', { session: false }), (req, res, next) => {
-    res.redirect(process.env.FRONTEND_HOST + '/login?jwt=' + req.user.jwt)
+    res.redirect(process.env.FRONTEND_HOST + '/loginRegister?jwt=' + req.user.jwt)
 })
 
 export default authRouter
